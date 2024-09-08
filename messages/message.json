@@ -1,0 +1,8 @@
+{
+  "auth": {
+    "registered": "User registered successfully ."
+  },
+  "user": {},
+
+  "default": { "default": "Something went wrong." }
+}
