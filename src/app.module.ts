@@ -5,7 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { APP_FILTER } from '@nestjs/core';
-import { HttpExceptionFilter } from 'filters/http-exception.filter';
+import { HttpExceptionFilter } from 'src/helper/http-exception.filter';
 import { UserModule } from './user/user.module';
 import { User } from './user/model/user.model';
 

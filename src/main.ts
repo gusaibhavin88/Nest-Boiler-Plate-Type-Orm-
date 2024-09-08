@@ -4,7 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import { AppModule } from './app.module';
-import { setupSwagger } from 'config/swagger.config';
+import { setupSwagger } from 'src/config/swagger.config';
 
 const logger = new Logger('App');
 
@@ -12,14 +12,14 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   const apiVersion = process.env.API_VERSION || '1';
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 4000;
 
   app.setGlobalPrefix(`/api/v${apiVersion}`);
 
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-  app.useStaticAssets(path.join(__dirname, '..', 'public'));
+  app.useStaticAssets(path.join(__dirname, '..', '/src/uploads'));
 
   app.enableCors(); // Configure CORS here if necessary
 

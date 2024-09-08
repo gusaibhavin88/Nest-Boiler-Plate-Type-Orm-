@@ -1,0 +1,13 @@
+{
+  "auth": {
+    "registered": "User registered successfully .",
+    "loggedIn": "User logged in successfully .",
+    "notFound": "User not found",
+    "invalidPassword": "Invalid Password.",
+    "alreadyExist": "User already exists.",
+    "invalidEmail": "Invalid email."
+  },
+  "user": {},
+
+  "default": { "default": "Something went wrong." }
+}

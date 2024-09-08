@@ -1,6 +1,7 @@
-// emailValidator.ts
+import * as messages from '../messages/message.json';
+
+// Email validation
 export const validateEmail = (email: string): boolean => {
-  // email validator from https://github.com/manishsaraan/email-validator/blob/master/index.js
   const regex =
     /^[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
 
@@ -21,9 +22,15 @@ export const validateEmail = (email: string): boolean => {
   return regex.test(email);
 };
 
+// Password validation
 export const passwordValidation = (password: string): boolean => {
   const passwordRegex =
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/;
 
   return passwordRegex.test(password);
+};
+
+// Return message function
+export const returnMessage = (module: string, key: string) => {
+  return messages[module][key];
 };

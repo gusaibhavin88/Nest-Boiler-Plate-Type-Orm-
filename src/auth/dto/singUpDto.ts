@@ -1,4 +1,10 @@
-import { IsString, IsEmail, MinLength, MaxLength } from 'class-validator';
+import {
+  IsString,
+  IsEmail,
+  MinLength,
+  MaxLength,
+  IsOptional,
+} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class SignUpDto {
@@ -38,4 +44,13 @@ export class SignUpDto {
     message: 'Password is too long. Maximum length is 50 characters.',
   })
   password: string;
+
+  @ApiProperty({
+    description: 'User profile image',
+    type: 'string',
+    format: 'binary',
+    example: 'binary-image-data',
+  })
+  @IsOptional()
+  image?: any; // Placeholder for Swagger documentation
 }
