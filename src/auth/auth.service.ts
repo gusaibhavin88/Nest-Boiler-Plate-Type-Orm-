@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as jwt from 'jsonwebtoken';
@@ -73,6 +73,7 @@ export class AuthService {
 
       return newUser;
     } catch (error) {
+      Logger.error('Error while creating user');
       throw new BadRequestException(error.message);
     }
   }
@@ -101,6 +102,7 @@ export class AuthService {
 
       return { token: userWithToken, ...user };
     } catch (error) {
+      Logger.error('Error while login user');
       throw new BadRequestException(error.message);
     }
   }
