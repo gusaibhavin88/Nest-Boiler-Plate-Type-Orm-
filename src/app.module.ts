@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpExceptionFilter } from 'src/helper/http-exception.filter';
-import { UserModule } from './user/user.module';
-import { User } from './user/model/user.model';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { CronJobs } from './commonServices/cronJob';
 import { ScheduleModule } from '@nestjs/schedule';
+import { AuthModule } from './modules/auth/auth.module';
+import { User } from './modules/user/model/user.model';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [

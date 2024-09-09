@@ -2,7 +2,6 @@ import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as jwt from 'jsonwebtoken';
-import { User } from 'src/user/model/user.model';
 import { SignUpDto } from './dto/singUpDto';
 import { CustomError } from 'src/helper/custom-error';
 import * as bcrypt from 'bcryptjs';
@@ -11,6 +10,7 @@ import {
   returnMessage,
   validateEmail,
 } from 'src/utility/utilityFunctions';
+import { User } from '../user/model/user.model';
 
 @Injectable()
 export class AuthService {
