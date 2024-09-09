@@ -9,6 +9,8 @@ import { HttpExceptionFilter } from 'src/helper/http-exception.filter';
 import { UserModule } from './user/user.module';
 import { User } from './user/model/user.model';
 import { MailerModule } from '@nestjs-modules/mailer';
+import { CronJobs } from './commonServices/cronJob';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -36,10 +38,12 @@ import { MailerModule } from '@nestjs-modules/mailer';
         },
       },
     }),
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [
     AppService,
+    CronJobs,
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,

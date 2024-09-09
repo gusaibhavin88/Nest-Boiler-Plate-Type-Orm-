@@ -5,7 +5,7 @@ import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import { AppModule } from './app.module';
 import { setupSwagger } from 'src/config/swagger.config';
-
+import seeder from './commonServices/seeder';
 const logger = new Logger('App');
 
 async function bootstrap() {
@@ -25,9 +25,12 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
-  setupSwagger(app);
+  setupSwagger(app); // Swagger
 
   await app.listen(port);
+
+  seeder(); // Seeder
+
   logger.fatal(
     `Server started at port http://localhost:${process.env.PORT}/api/v${apiVersion}`, // Logger for consistent logging
   );
