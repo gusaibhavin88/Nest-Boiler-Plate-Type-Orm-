@@ -8,6 +8,7 @@ import { APP_FILTER } from '@nestjs/core';
 import { HttpExceptionFilter } from 'src/helper/http-exception.filter';
 import { UserModule } from './user/user.module';
 import { User } from './user/model/user.model';
+import { MailerModule } from '@nestjs-modules/mailer';
 
 @Module({
   imports: [
@@ -26,6 +27,15 @@ import { User } from './user/model/user.model';
       synchronize: true,
     }),
     UserModule,
+    MailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        auth: {
+          user: process.env.EMAIL_USERNAME,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      },
+    }),
   ],
   controllers: [AppController],
   providers: [

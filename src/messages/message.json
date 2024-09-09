@@ -7,7 +7,9 @@
     "alreadyExist": "User already exists.",
     "invalidEmail": "Invalid email."
   },
-  "user": {},
+  "user": {
+    "mailSent": "Mail sent successfully."
+  },
 
   "default": { "default": "Something went wrong." }
 }
