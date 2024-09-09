@@ -8,7 +8,8 @@
     "invalidEmail": "Invalid email."
   },
   "user": {
-    "mailSent": "Mail sent successfully."
+    "mailSent": "Mail sent successfully.",
+    "userFetched": "User fetched successfully."
   },
 
   "default": { "default": "Something went wrong." }

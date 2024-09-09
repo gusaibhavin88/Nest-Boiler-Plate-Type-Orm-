@@ -5,6 +5,16 @@ import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 export class UserService {
   constructor(private readonly mailService: MailerService) {}
 
+  // Get User
+  async getUser(user: any): Promise<any> {
+    try {
+      return user;
+    } catch (error) {
+      Logger.error('Error while send mail');
+      throw new BadRequestException(error.message);
+    }
+  }
+
   // Send Mail
   async sendMail(): Promise<any> {
     try {
